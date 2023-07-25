@@ -1,2 +1,6 @@
 # Project exclude paths
 /static/js/script.js
+# IntellijIdea files
+*.iml
+.idea
+out
