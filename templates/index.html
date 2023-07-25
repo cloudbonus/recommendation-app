@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+
+    <!-- Bootstrap CSS -->
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'
+          integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>
+
+    <!-- PDF.js -->
+    <script src='https://mozilla.github.io/pdf.js/build/pdf.js'></script>
+
+    <!-- Custom CSS -->
+    <link rel='stylesheet' type='text/css' href='{{ url_for('static',filename='css/styles.css') }}'>
+    <title>REC</title>
+    <link rel='shortcut icon' href='{{ url_for('static', filename='favicon.ico') }}'>
+</head>
+<body class='bg-dark'>
+<div class='container'>
+    <div class='row my-5'>
+        <div class='col'>
+            <div class='card mt-5'>
+                <div class='card-header'>
+                    <h2 class='display-6 text-center'>Book Twin Discoverer</h2>
+                </div>
+                <div class='pt-2 pb-5 px-5'>
+                    <h2>Upload a File</h2>
+                    <p id='message'>Please select a PDF file</p>
+                    <form action='/upload' class='input-group mb-3' method='post' enctype='multipart/form-data'>
+                        <div class='custom-file'>
+                            <input type='file' class='custom-file-input' name='file' id='file-input'>
+                            <label class='custom-file-label' for='file-input'>Choose file</label>
+                        </div>
+                        <div class='input-group-append'>
+                            <input type='submit' class='input-group-text' id='submit-button' value='Upload' disabled>
+                        </div>
+                        <div class='input-group-append'>
+                            <button id='analyze-button' class='btn btn-danger' type='button' style='display: none;'>
+                                <span id='spin-ID' class='spinner-border spinner-border-sm' role='status'
+                                      aria-hidden='true' style='display: none;'></span>
+                                <span id='analyze-text' class='visually-hidden'>Analyze</span>
+                            </button>
+                        </div>
+                    </form>
+                    <div id='content-container'></div>
+                    <div class='text-center h2' id='loading-indicator' style='display:none;'>Please Wait</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- jQuery -->
+<script src='https://code.jquery.com/jquery-3.1.1.min.js'></script>
+
+<!-- Popper.js -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'></script>
+
+<!-- Bootstrap JS -->
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
+
+<!-- Custom JS -->
+<script src='{{ url_for('static', filename='js/script.js') }}'></script>
+</body>
+</html>
