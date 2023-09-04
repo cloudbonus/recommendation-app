@@ -15,10 +15,6 @@ def analyze_book(path):
     vec_lsi = lsi[vec_bow]
 
     index = similarities.MatrixSimilarity(lsi[corpus])
-
-    index.save('/tmp/deerwester.index')
-    index = similarities.MatrixSimilarity.load('/tmp/deerwester.index')
-
     sims = index[vec_lsi]
 
     return sorted(enumerate(sims), key=lambda item: -item[1])
